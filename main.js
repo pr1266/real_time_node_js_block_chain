@@ -10,7 +10,7 @@ const SocketActions  = require('./constants');
 
 const socketListeners = require('./socketListeners');
 
-const PORT = 3000;
+const PORT = 5000;
 
 const blockChain = new BlockChain(null, io);
 

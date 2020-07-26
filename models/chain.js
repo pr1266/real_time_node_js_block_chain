@@ -61,6 +61,22 @@ class Blockchain {
     }
     return true;
   }
+
+  parseChain(blocks) {
+    this.blocks = blocks.map(block => {
+      const parsedBlock = new Block(0);
+      parsedBlock.parseBlock(block);
+      return parsedBlock;
+    });
+  }
+
+  toArray() {
+    return this.blocks.map(block => block.getDetails());
+  }
+  
+  printBlocks() {
+    this.blocks.forEach(block => console.log(block));
+  }
 }
 
 module.exports = Blockchain;

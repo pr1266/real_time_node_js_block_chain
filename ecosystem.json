@@ -1,0 +1,11 @@
+{
+  "apps" : [
+    {
+      "name": "Pourya",
+      "script": "main.js",
+      "env": {
+        "PORT": "5000"
+      }
+    }
+  ]
+}

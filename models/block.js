@@ -1,5 +1,5 @@
 const crypto = require('crypto');
-const transaction = require('./transaction');
+const Transaction = require('./transaction');
 
 class Block{
     constructor(index, previousBlockHash, previousProof, transactions){
@@ -33,6 +33,33 @@ class Block{
     
       getPreviousBlockHash() {
         return this.previousBlockHash;
+    }
+
+    getDetails() {
+      const { index, proof, previousBlockHash, transactions, timestamp } = this;
+      return {
+        index,
+        proof,
+        timestamp,
+        previousBlockHash,
+        transactions: transactions.map(transaction => transaction.getDetails()),
+      };
+    }
+  
+    parseBlock(block) {
+      this.index = block.index;
+      this.proof = block.proof;
+      this.previousBlockHash = block.previousBlockHash;
+      this.timestamp = block.timestamp;
+      this.transactions = block.transactions.map(transaction => {
+        const parsedTransaction = new Transaction();
+        parsedTransaction.parseTransaction(transaction);
+        return parsedTransaction;
+      });
+    }
+  
+    printTransactions() {
+      this.transactions.forEach(transaction => console.log(transaction));
     }
 }
 
