@@ -2,10 +2,12 @@
   "name": "blockchain",
   "version": "1.0.0",
   "description": "nodejs-blockchain-socket",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "run": "nodemon main.js"
+    "start": "pm2 startOrReload ecosystem.json --update-env && npm run logs",
+    "logs": "pm2 logs",
+    "kill": "pm2 flush && pm2 kill",
+    "flush": "pm2 flush"
   },
   "repository": {
     "type": "git",
@@ -16,12 +18,19 @@
   "bugs": {
     "url": "https://github.com/pr1266/real_time_node_js_block_chain/issues"
   },
+  "keywords": [
+    "blockchain",
+    "express",
+    "socket",
+    "websocket"
+  ],
   "homepage": "https://github.com/pr1266/real_time_node_js_block_chain#readme",
   "dependencies": {
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "nodemon": "^2.0.4",
+    "pm2": "^4.4.0",
     "socket.io": "^2.3.0"
   }
 }
