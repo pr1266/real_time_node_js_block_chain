@@ -1,6 +1,12 @@
 const crypto = require('crypto');
 const Transaction = require('./transaction');
 
+//! block chie ? ye seri data shamel e transaction va proof, timestamp, previous Block hash
+//? baraye har block ham ye hash be dast miarim ke dar nahayat be onvan e previous Block hash
+//? block e badi, dar nazar gerefte mishe, ye index ham darim shomare block ro tooye chain moshakhas mikone
+//TODO ye nokte jaleb ke hast ine ke ye block mitoone chand ta transaction dashte bashe
+//* ke ma inja 2 ta transaction dar nazar gereftim :
+
 class Block{
     constructor(index, previousBlockHash, previousProof, transactions){
         this.index = index;

@@ -1,11 +1,10 @@
 const Block = require('./block');
-
 const actions = require('../constants');
-
 const { generateProof, isProofValid } = require('../utils/proof');
 
 class Blockchain {
   constructor(blocks, io) {
+    // check mikonim age block toye chain vojood nadasht ye default dorost mikonim barash :
     this.blocks = blocks || [new Block(0, 1, 0, [])];
     this.currentTransactions = [];
     this.nodes = [];
@@ -22,6 +21,8 @@ class Blockchain {
     this.io.emit(actions.END_MINING, this.toArray());
   }
 
+  // ma inja ye threshold 2 taii vase safe transaction ha gozashtim
+  // yani sabr mikonim 2 ta transaction add beshe baad mine mikonim
   async newTransaction(transaction) {
     this.currentTransactions.push(transaction);
     if (this.currentTransactions.length === 2) {
@@ -46,6 +47,7 @@ class Blockchain {
     return this.blocks.length;
   }
 
+  // hash haye dota block va proof hashoon ro check mikonim :
   checkValidity() {
     const { blocks } = this;
     let previousBlock = blocks[0];
@@ -73,7 +75,7 @@ class Blockchain {
   toArray() {
     return this.blocks.map(block => block.getDetails());
   }
-  
+
   printBlocks() {
     this.blocks.forEach(block => console.log(block));
   }

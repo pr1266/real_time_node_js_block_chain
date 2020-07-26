@@ -1,4 +1,9 @@
+//TODO ino mizarim baraye transaction ha :
+//? sender, reciever, amount, currency ro toosh moshakhas mokonim
+//? va time ro ham behesh ezafe mikonim
+
 class Transaction{
+
     constructor(sender, receiver, amount, currency){
         this.sender = sender;
         this.receiver = receiver;
