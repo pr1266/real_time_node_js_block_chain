@@ -4,10 +4,11 @@
   "description": "nodejs-blockchain-socket",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 startOrReload ecosystem.json --update-env && npm run logs",
+    "start": "pm2 start main.js",
     "logs": "pm2 logs",
     "kill": "pm2 flush && pm2 kill",
-    "flush": "pm2 flush"
+    "flush": "pm2 flush",
+    "stop": "pm2 restart all"
   },
   "repository": {
     "type": "git",

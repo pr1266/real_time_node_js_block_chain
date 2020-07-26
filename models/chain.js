@@ -61,8 +61,6 @@ class Blockchain {
     }
     return true;
   }
-
-  /* Stringify and Parsing functions */
 }
 
 module.exports = Blockchain;
